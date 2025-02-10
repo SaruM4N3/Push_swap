@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 06:02:12 by zsonie            #+#    #+#             */
-/*   Updated: 2025/02/08 03:47:46 by zsonie           ###   ########.fr       */
+/*   Created: 2025/02/10 15:04:35 by sarunomane        #+#    #+#             */
+/*   Updated: 2025/02/10 15:49:22 by sarunomane       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct s_stack
+#include<stdio.h>
+
+int	display_error(void)
 {
-	int	value;
-	struct node *p_next;
-	struct node *p_previous;
-}	t_stack;
-
-
-#ifndef PUSH_SWAP_H
- #define PUSH_SWAP_H
-
-
-#endif 
+	write(2,"ERROR\n",6);
+	return (1);
+}
