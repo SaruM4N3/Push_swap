@@ -6,7 +6,7 @@
 /*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 06:02:12 by zsonie            #+#    #+#             */
-/*   Updated: 2025/03/07 11:29:03 by sarunomane       ###   ########.fr       */
+/*   Updated: 2025/03/11 11:48:04 by sarunomane       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ bool is_sorted(t_stack *stack);
 t_stack *parse_input(int argc, char **argv);
 
 // Sorting Algorithm
+int *stack_to_array(t_stack *stack);
+int find_median(t_stack *stack);
 void partition(t_stack *a, t_stack *b, int pivot);
 void quicksort_stack(t_stack *a, t_stack *b);
 

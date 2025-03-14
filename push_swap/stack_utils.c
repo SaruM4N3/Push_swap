@@ -6,7 +6,7 @@
 /*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:36:10 by sarunomane        #+#    #+#             */
-/*   Updated: 2025/03/07 11:36:27 by sarunomane       ###   ########.fr       */
+/*   Updated: 2025/03/11 11:29:19 by sarunomane       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,15 @@ void free_stack(t_stack *stack)
     free(stack);
 }
 
-// Check if the stack is sorted in ascending order
+// Check if the stack is sorted
 bool is_sorted(t_stack *stack)
 {
     if (!stack || stack->size < 2)
+	{
+		printf("no stack found or stack is to short");
         return (true);
-    
+	}
+
     t_node *current = stack->top;
     while (current->next)
     {
@@ -53,7 +56,7 @@ bool is_sorted(t_stack *stack)
     return (true);
 }
 
-// Push a value onto the stack (linked list implementation)
+// Push a value onto the stack
 void push_stack(t_stack *stack, int value)
 {
     t_node *new_node = malloc(sizeof(t_node));

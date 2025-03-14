@@ -6,7 +6,7 @@
 /*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:14:26 by sarunomane        #+#    #+#             */
-/*   Updated: 2025/03/07 11:14:28 by sarunomane       ###   ########.fr       */
+/*   Updated: 2025/03/11 12:16:05 by sarunomane       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-// Helper function to check if a string is a valid integer
+// check if a string is a valid integer
 int is_valid_number(const char *str)
 {
     if (!str || !*str)
@@ -32,7 +32,7 @@ int is_valid_number(const char *str)
     return (1);
 }
 
-// Function to check for duplicates in the stack
+// check for duplicates in the stack
 int has_duplicates(t_stack *stack, int value)
 {
     t_node *current = stack->top;
@@ -45,7 +45,7 @@ int has_duplicates(t_stack *stack, int value)
     return (0);
 }
 
-// Function to parse input arguments into a stack
+// parse input arguments into stack 
 t_stack *parse_input(int argc, char **argv)
 {
     t_stack *stack = init_stack();
