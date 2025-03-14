@@ -3,56 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   quicksort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:09:48 by sarunomane        #+#    #+#             */
-/*   Updated: 2025/03/11 12:26:42 by sarunomane       ###   ########.fr       */
+/*   Updated: 2025/03/14 21:42:26 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Convert stack to an array for median calculation
-int *stack_to_array(t_stack *stack)
-{
-    if (!stack || stack->size == 0)
-        return NULL;
-    
-    int *arr = malloc(sizeof(int) * stack->size);
-    if (!arr)
-        return NULL;
-    
-    t_node *current = stack->top;
-    for (int i = 0; i < stack->size; i++)
-    {
-        arr[i] = current->value;
-        current = current->next;
-    }
-    
-    // Sort the array to find median
-    for (int i = 0; i < stack->size - 1; i++)
-    {
-        for (int j = i + 1; j < stack->size; j++)
-        {
-            if (arr[i] > arr[j])
-            {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
-    }
-    return arr;
-}
-
 // Function to find the median as pivot
 int find_median(t_stack *stack)
 {
-    int *arr = stack_to_array(stack);
-    if (!arr)
-        return stack ? stack->top->value : 0;
-    int median = arr[stack->size / 2];
-    free(arr);
+	//should define the median
+    if (!stack)
+        return 1;
+    int median = stack->size / 2;
     return median;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 06:02:12 by zsonie            #+#    #+#             */
-/*   Updated: 2025/03/11 11:48:04 by sarunomane       ###   ########.fr       */
+/*   Updated: 2025/03/14 20:35:57 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <libft.h> 
 
 // Stack Node Structure
 typedef struct s_node {

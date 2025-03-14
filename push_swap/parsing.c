@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:14:26 by sarunomane        #+#    #+#             */
-/*   Updated: 2025/03/11 12:16:05 by sarunomane       ###   ########.fr       */
+/*   Updated: 2025/03/14 20:36:40 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_stack *parse_input(int argc, char **argv)
             exit(EXIT_FAILURE);
         }
         
-        long num = strtol(argv[i], NULL, 10);
+        long num = ft_atoi(argv[i]);
         if (num > INT_MAX || num < INT_MIN || has_duplicates(stack, (int)num))
         {
             write(2, "Error\n", 6);
