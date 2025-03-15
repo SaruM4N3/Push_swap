@@ -14,12 +14,18 @@
 # define LIBFT_H
 
 ////////////////////////////////INCLUDES//////////////////////////////////////
-
+#ifdef _WIN32
+# include <io.h>
+# define access _access
+# else
+# include <unistd.h>
+#endif
 # include <stddef.h>
 # include <stdlib.h>
-# include <unistd.h>
 # include "time_manager.h"
 # include "get_next_line.h"
+
+
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\

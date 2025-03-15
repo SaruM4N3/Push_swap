@@ -22,6 +22,7 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = pushswap.c \
+		ft_atoi.c \
 		parsing.c \
 		quicksort.c \
 		stack_utils.c \

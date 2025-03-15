@@ -25,19 +25,24 @@
 # endif
 
 # if BUFFER_SIZE <= 0
-#  error BUFFER_SIZE cannot be <= 0 
+#  error BUFFER_SIZE cannot be <= 0
 # endif
 
 # if NBR_FD <= 0
-#  error NBR_FD cannot be <= 0 
+#  error NBR_FD cannot be <= 0
 # endif
 
 ///////////////////////////////////////////////////////////////////////////////
 //----------------------------------INCLUDE---------------------------------//
 /////////////////////////////////////////////////////////////////////////////
 
-# include <unistd.h>
 # include <stdlib.h>
+# ifdef _WIN32
+#  include <io.h>
+#  define access _access
+# else
+#  include <unistd.h>
+# endif
 
 ///////////////////////////////////////////////////////////////////////////////
 //---------------------------------FUNCTION---------------------------------//

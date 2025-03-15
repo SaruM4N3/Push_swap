@@ -12,26 +12,25 @@
 
 #include "includes/push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_stack *a;
-    t_stack *b;
+	t_stack	*a;
+	t_stack	*b;
 
-    if (argc < 2)
-        return (0);
-
-    a = parse_input(argc, argv);
-    if (!a)
-        return (1);
-    b = init_stack();
-    if (!b)
-    {
-        free_stack(a);
-        return (1);
-    }
-    if (!is_sorted(a))
-        quicksort_stack(a, b);
-    free_stack(a);
-    free_stack(b);
-    return (0);
+	if (argc < 2)
+		return (0);
+	a = parse_input(argc, argv);
+	if (!a)
+		return (1);
+	b = init_stack();
+	if (!b)
+	{
+		free_stack(a);
+		return (1);
+	}
+	if (!is_sorted(a))
+		quicksort_stack(a, b);
+	free_stack(a);
+	free_stack(b);
+	return (0);
 }

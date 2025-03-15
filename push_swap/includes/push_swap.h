@@ -13,51 +13,60 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "../libft/headers/libft.h"
+# include <limits.h>
+# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <stdbool.h>
-# include <limits.h>
-# include <libft.h> 
+# ifdef _WIN32
+#  include <io.h>
+#  define access _access
+# else
+#  include <unistd.h>
+# endif
 
 // Stack Node Structure
-typedef struct s_node {
-    int value;
-    struct s_node *next;
-} t_node;
+typedef struct s_node
+{
+	int				value;
+	struct s_node	*next;
+}					t_node;
 
 // Stack Structure
-typedef struct s_stack {
-    t_node *top;
-    int size;
-} t_stack;
+typedef struct s_stack
+{
+	t_node			*top;
+	int				size;
+}					t_stack;
 
+int					ft_atoi(const char *str);
 // Stack Management Functions
-t_stack *init_stack();
-void push_stack(t_stack *stack, int value);
-int pop_stack(t_stack *stack);
-void free_stack(t_stack *stack);
-bool is_sorted(t_stack *stack);
+t_stack				*init_stack(void);
+void				push_stack(t_stack *stack, int value);
+int					pop_stack(t_stack *stack);
+void				free_stack(t_stack *stack);
+bool				is_sorted(t_stack *stack);
 
 // Parsing Function
-t_stack *parse_input(int argc, char **argv);
+t_stack				*parse_input(int argc, char **argv);
 
 // Sorting Algorithm
-int *stack_to_array(t_stack *stack);
-int find_median(t_stack *stack);
-void partition(t_stack *a, t_stack *b, int pivot);
-void quicksort_stack(t_stack *a, t_stack *b);
+int					*stack_to_array(t_stack *stack);
+int					find_median(t_stack *stack);
+void				partition(t_stack *a, t_stack *b, int pivot);
+void				quicksort_stack(t_stack *a, t_stack *b);
 
 // Push Swap Operations
-void sa(t_stack *a);
-void sb(t_stack *b);
-void ss(t_stack *a, t_stack *b);
-void pa(t_stack *a, t_stack *b);
-void pb(t_stack *a, t_stack *b);
-void ra(t_stack *a);
-void rb(t_stack *b);
-void rr(t_stack *a, t_stack *b);
-void rra(t_stack *a);
-void rrb(t_stack *b);
-void rrr(t_stack *a, t_stack *b);
+void				sa(t_stack *a);
+void				sb(t_stack *b);
+void				ss(t_stack *a, t_stack *b);
+void				pa(t_stack *a, t_stack *b);
+void				pb(t_stack *a, t_stack *b);
+void				ra(t_stack *a);
+void				rb(t_stack *b);
+void				rr(t_stack *a, t_stack *b);
+void				rra(t_stack *a);
+void				rrb(t_stack *b);
+void				rrr(t_stack *a, t_stack *b);
 
 #endif
