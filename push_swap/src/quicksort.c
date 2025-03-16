@@ -10,47 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include "../includes/push_swap.h"
 
-int	compare(const int *a, const int *b)
-{
-	return (a - b);
-}
-int highest_value(t_stack *stack)
-{
-	t_node *current;
-	int highest;
-
-	if (!stack || stack->size == 0)
-		return (0);
-	current = stack->top;
-	highest = current->value;
-	while (current)
-	{
-		if (current->value > highest)
-			highest = current->value;
-		current = current->next;
-	}
-	return (highest);
-}
-
-int lowest_value(t_stack *stack)
-{
-	t_node *current;
-	int lowest;
-
-	if (!stack || stack->size == 0)
-		return (0);
-	current = stack->top;
-	lowest = current->value;
-	while (current)
-	{
-		if (current->value < lowest)
-			lowest = current->value;
-		current = current->next;
-	}
-	return (lowest);
-}
 int	find_medians_value(t_stack *stack)
 {
 	int median_value;
@@ -71,24 +32,19 @@ void	partition(t_stack *a, t_stack *b, int lowpivot, int highpivot)
 {
 	int	count;
 
+	count = find_lower_than_pivot(a, lowpivot);
+	if (count == 0)
+		count = find_higher_than_pivot(a, highpivot);
 	if (!a )
 		return ;
-	while (a->size > 1)
+	while (a->size > 0)
 	{
 		if (a->top->value < lowpivot)
-		{
-			//if value is less than pivot, push to bottom of stack B
 			pb(a,b);
-			rrb(b);
-		}
-		else if (a->top->value > highpivot)
-		{
-			//push to the top of stack B
+		else if (a->top->value >= lowpivot && a->top->value < highpivot)
 			pb(a,b);
-			if (b->top->value < b->top->next->value)
-				sb(b);
-		}
-			
+		else
+			ra(a);
 		a->size--;
 	}
 }
@@ -102,9 +58,6 @@ void	quicksort_stack(t_stack *a, t_stack *b)
 	// Partition the stack
 	partition(a, b, lowpivot, highpivot);
 
-	// Sort the stacks
-	while (b->size > 0)
-	{
-	}
+	// Sort the stack
 	quicksort_stack(a, b);
 }

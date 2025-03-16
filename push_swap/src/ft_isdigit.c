@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushswap.c                                         :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 11:15:18 by sarunomane        #+#    #+#             */
-/*   Updated: 2025/03/14 20:37:18 by zsonie           ###   ########.fr       */
+/*   Created: 2024/11/05 17:07:39 by zsonie            #+#    #+#             */
+/*   Updated: 2024/11/09 23:04:16 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-
-int	main(int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_stack	*a;
-	t_stack	*b;
-
-	if (argc < 2)
-		return (0);
-	a = parse_input(argc, argv);
-	if (!a)
-		return (1);
-	b = init_stack();
-	if (!b)
-	{
-		free_stack(a);
-		return (1);
-	}
-	if (!is_sorted(a))
-		quicksort_stack(a, b);
-	free_stack(a);
-	free_stack(b);
-	return (0);
+	return ((int) c >= 48 && c <= 57);
 }
+
+/*
+int	main(int ac, char **av)
+{
+	if (ac 	!= 2)
+		return(0);
+	__builtin_printf("%d",ft_isdigit(av[1][0]));
+}*/

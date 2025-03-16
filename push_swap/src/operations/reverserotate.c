@@ -1,57 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverserotate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 10:32:29 by sarunomane        #+#    #+#             */
-/*   Updated: 2025/03/07 11:35:01 by sarunomane       ###   ########.fr       */
+/*   Created: 2025/03/07 10:33:04 by sarunomane        #+#    #+#             */
+/*   Updated: 2025/03/07 11:35:16 by sarunomane       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
-// Rotate stack a upwards (first element becomes last)
-void ra(t_stack *a)
+// Reverse rotate stack a (last element becomes first)
+void rra(t_stack *a)
 {
     if (!a || a->size < 2)
         return;
     
-    t_node *first = a->top;
+    t_node *prev = NULL;
     t_node *last = a->top;
     while (last->next)
+    {
+        prev = last;
         last = last->next;
+    }
     
-    a->top = first->next;
-    first->next = NULL;
-    last->next = first;
+    prev->next = NULL;
+    last->next = a->top;
+    a->top = last;
     
-    printf("ra\n");
+    printf("rra\n");
 }
 
-// Rotate stack b upwards
-void rb(t_stack *b)
+// Reverse rotate stack b
+void rrb(t_stack *b)
 {
     if (!b || b->size < 2)
         return;
     
-    t_node *first = b->top;
+    t_node *prev = NULL;
     t_node *last = b->top;
     while (last->next)
+    {
+        prev = last;
         last = last->next;
+    }
     
-    b->top = first->next;
-    first->next = NULL;
-    last->next = first;
+    prev->next = NULL;
+    last->next = b->top;
+    b->top = last;
     
-    printf("rb\n");
+    printf("rrb\n");
 }
 
-// Rotate both stacks at the same time
-void rr(t_stack *a, t_stack *b)
+// Reverse rotate both stacks
+void rrr(t_stack *a, t_stack *b)
 {
-    ra(a);
-    rb(b);
-   printf("rr\n");
+    rra(a);
+    rrb(b);
+    printf("rrr\n");
 }

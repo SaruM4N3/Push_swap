@@ -10,13 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
-#include <ctype.h>
-#include <limits.h>
-#include <stdlib.h>
+#include "../includes/push_swap.h"
 
 // check if a string is a valid integer
-int	is_valid_number(const char *str)
+static int	is_valid_number(const char *str)
 {
 	if (!str || !*str)
 		return (0);
@@ -24,7 +21,7 @@ int	is_valid_number(const char *str)
 		str++;
 	while (*str)
 	{
-		if (!isdigit(*str))
+		if (!ft_isdigit(*str))
 			return (0);
 		str++;
 	}
@@ -32,7 +29,7 @@ int	is_valid_number(const char *str)
 }
 
 // check for duplicates in the stack
-int	has_duplicates(t_stack *stack, int value)
+static int	has_duplicates(t_stack *stack, int value)
 {
 	t_node	*current;
 
@@ -51,11 +48,12 @@ t_stack	*parse_input(int argc, char **argv)
 {
 	t_stack	*stack;
 	long	num;
+	int i = argc;
 
 	stack = init_stack();
 	if (!stack)
 		return (NULL);
-	for (int i = argc - 1; i > 0; i--)
+	while (--i > 0)
 	{
 		if (!is_valid_number(argv[i]))
 		{

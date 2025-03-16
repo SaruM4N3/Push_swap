@@ -21,15 +21,17 @@ INC = -I includes
 SRCDIR = src
 OBJDIR = obj
 
-SRCS = pushswap.c \
-		ft_atoi.c \
-		parsing.c \
-		quicksort.c \
-		stack_utils.c \
-		operations/swap.c \
-		operations/rotate.c \
-		operations/reverserotate.c \
-		operations/push.c
+SRCS = src/pushswap.c \
+		src/utils.c \
+		src/ft_atoi.c \
+		src/ft_isdigit.c \
+		src/parsing.c \
+		src/quicksort.c \
+		src/stack_utils.c \
+		src/operations/swap.c \
+		src/operations/rotate.c \
+		src/operations/reverserotate.c \
+		src/operations/push.c
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
@@ -39,12 +41,13 @@ $(NAME): $(OBJS) $(LIBFT)
 	@echo "$(GREEN)Making executable$(RESET)"
 	@$(CC) $(CFLAGS) $(INC) -o $(NAME) $(OBJS) $(LIB)
 
-$(OBJDIR)/%.o: %.c | $(OBJDIR)
+$(OBJDIR)/%.o: %.c | $(OBJDIR) 
 	@echo "$(YELLOW)Converting $(GREEN)$< $(YELLOW)to $(GREEN)$@$(RESET)"
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 $(OBJDIR):
-	@mkdir -p $(OBJDIR)/operations
+	@mkdir -p $(OBJDIR)/src
+	@mkdir -p $(OBJDIR)/src/operations
 
 $(LIBFT):
 	@echo "Make libft"

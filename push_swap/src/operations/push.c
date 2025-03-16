@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 // Push the top element from stack b to stack a
 void	pa(t_stack *a, t_stack *b)

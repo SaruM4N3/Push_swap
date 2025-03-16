@@ -3,6 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+/*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/16 21:44:15 by sarunomane        #+#    #+#             */
+/*   Updated: 2025/03/16 21:44:15 by sarunomane       ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
 /*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 06:02:12 by zsonie            #+#    #+#             */
@@ -39,7 +51,14 @@ typedef struct s_stack
 	int				size;
 }					t_stack;
 
+// Utility Functions
+int 				lowest_value(t_stack *stack);
+int 				highest_value(t_stack *stack);
+int					find_lower_than_pivot(t_stack *stack, int pivot);
+int					find_higher_than_pivot(t_stack *stack, int pivot);
 int					ft_atoi(const char *str);
+int					ft_isdigit(int c);
+
 // Stack Management Functions
 t_stack				*init_stack(void);
 void				push_stack(t_stack *stack, int value);
