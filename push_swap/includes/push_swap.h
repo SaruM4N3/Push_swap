@@ -53,7 +53,7 @@ t_stack				*parse_input(int argc, char **argv);
 // Sorting Algorithm
 int					*stack_to_array(t_stack *stack);
 int					find_median(t_stack *stack);
-void				partition(t_stack *a, t_stack *b, int pivot);
+void				partition(t_stack *a, t_stack *b, int lowpivot, int highpivot);
 void				quicksort_stack(t_stack *a, t_stack *b);
 
 // Push Swap Operations

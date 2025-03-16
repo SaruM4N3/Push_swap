@@ -12,110 +12,99 @@
 
 #include <push_swap.h>
 
-// Function to compare two integers for qsort
-int	compare(const void *a, const void *b)
+int	compare(const int *a, const int *b)
 {
-	return (*(int *)a - *(int *)b);
+	return (a - b);
 }
-
-// Function to find the median value of the stack
-int	find_median_value(t_stack *stack)
+int highest_value(t_stack *stack)
 {
-	int		*values;
-	t_node	*current;
-	int		median_value;
+	t_node *current;
+	int highest;
 
-	int i, j, temp;
 	if (!stack || stack->size == 0)
 		return (0);
-	values = malloc(stack->size * sizeof(int));
-	if (!values)
+	current = stack->top;
+	highest = current->value;
+	while (current)
+	{
+		if (current->value > highest)
+			highest = current->value;
+		current = current->next;
+	}
+	return (highest);
+}
+
+int lowest_value(t_stack *stack)
+{
+	t_node *current;
+	int lowest;
+
+	if (!stack || stack->size == 0)
 		return (0);
 	current = stack->top;
-	i = 0;
-	while (i < stack->size)
+	lowest = current->value;
+	while (current)
 	{
-		values[i] = current->value;
+		if (current->value < lowest)
+			lowest = current->value;
 		current = current->next;
-		i++;
 	}
-	// Bubble sort to sort the values
-	i = 0;
-	while (i < stack->size - 1)
-	{
-		j = 0;
-		while (j < stack->size - i - 1)
-		{
-			if (values[j] > values[j + 1])
-			{
-				temp = values[j];
-				values[j] = values[j + 1];
-				values[j + 1] = temp;
-			}
-			j++;
-		}
-		i++;
-	}
-	median_value = values[stack->size / 2];
-	free(values);
+	return (lowest);
+}
+int	find_medians_value(t_stack *stack)
+{
+	int median_value;
+	int highest;
+	int lowest;
+
+	if (!stack || stack->size == 0)
+		return (0);
+
+	highest = highest_value(stack);
+	lowest = lowest_value(stack);
+	median_value = (highest + lowest) / 3;
 	return (median_value);
 }
 
 // Partition function to divide stack correctly
-void	partition(t_stack *a, t_stack *b, int pivot)
+void	partition(t_stack *a, t_stack *b, int lowpivot, int highpivot)
 {
-	int	size;
 	int	count;
 
-	if (!a || a->size < 2)
+	if (!a )
 		return ;
-	size = a->size;
-	count = 0;
-	while (size > 0)
+	while (a->size > 1)
 	{
-		if (a->top->value < pivot)
+		if (a->top->value < lowpivot)
 		{
-			pb(a, b); // Push to stack B if less than pivot
+			//if value is less than pivot, push to bottom of stack B
+			pb(a,b);
+			rrb(b);
 		}
-		else
+		else if (a->top->value > highpivot)
 		{
-			ra(a); // Rotate elements >= pivot
-			count++;
+			//push to the top of stack B
+			pb(a,b);
+			if (b->top->value < b->top->next->value)
+				sb(b);
 		}
-		size--;
-	}
-	// Restore stack order
-	while (count > 0)
-	{
-		rra(a);
-		count--;
+			
+		a->size--;
 	}
 }
 
 void	quicksort_stack(t_stack *a, t_stack *b)
 {
-	int	size_a;
-
 	if (!a || is_sorted(a) || a->size < 2)
 		return ;
-	int pivot = find_median_value(a); // Choose median value as pivot
-	partition(a, b, pivot);
-	// Sort the part of stack 'a' that is less than the pivot
-	size_a = a->size;
-	while (size_a > 0)
-	{
-		if (a->top->value >= pivot)
-			break ;
-		ra(a);
-		size_a--;
-	}
-	// Sort the part of stack 'b' that is less than the pivot
-	quicksort_stack(b, a);
-	// Push back from B to A
+	int lowpivot = find_medians_value(a); // Choose median value as pivot
+	int highpivot = lowpivot *2;
+	// Partition the stack
+	partition(a, b, lowpivot, highpivot);
+
+	// Sort the stacks
 	while (b->size > 0)
 	{
-		pa(a, b);
 	}
-	// Sort the part of stack 'a' that is greater than or equal to the pivot
 	quicksort_stack(a, b);
 }

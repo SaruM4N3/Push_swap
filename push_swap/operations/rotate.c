@@ -53,5 +53,5 @@ void rr(t_stack *a, t_stack *b)
 {
     ra(a);
     rb(b);
-    printf("rr\n");
+   printf("rr\n");
 }

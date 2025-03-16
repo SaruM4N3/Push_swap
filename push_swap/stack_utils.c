@@ -46,9 +46,9 @@ bool	is_sorted(t_stack *stack)
 {
 	t_node	*current;
 
-	if (!stack || stack->size < 2)
+	if (!stack )
 	{
-		printf("no stack found or stack is to short");
+		printf("no stack found\n");
 		return (true);
 	}
 	current = stack->top;
