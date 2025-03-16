@@ -22,12 +22,12 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = src/pushswap.c \
-		src/utils.c \
-		src/ft_atoi.c \
-		src/ft_isdigit.c \
 		src/parsing.c \
 		src/quicksort.c \
-		src/stack_utils.c \
+		src/utils/utils.c \
+		src/utils/ft_atoi.c \
+		src/utils/stack_utils.c \
+		src/utils/ft_isdigit.c \
 		src/operations/swap.c \
 		src/operations/rotate.c \
 		src/operations/reverserotate.c \
@@ -47,6 +47,7 @@ $(OBJDIR)/%.o: %.c | $(OBJDIR)
 
 $(OBJDIR):
 	@mkdir -p $(OBJDIR)/src
+	@mkdir -p $(OBJDIR)/src/utils
 	@mkdir -p $(OBJDIR)/src/operations
 
 $(LIBFT):
