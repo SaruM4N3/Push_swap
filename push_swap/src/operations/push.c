@@ -3,44 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarunomane <sarunomane@student.42.fr>      +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 10:30:21 by sarunomane        #+#    #+#             */
-/*   Updated: 2025/03/07 11:34:44 by sarunomane       ###   ########.fr       */
+/*   Created: 2025/03/18 17:49:23 by zsonie            #+#    #+#             */
+/*   Updated: 2025/03/18 17:49:23 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-// Push the top element from stack b to stack a
-void	pa(t_stack *a, t_stack *b)
+static void	push(t_stack_node **dst, t_stack_node **src) //Define a function that pushes a top node, from one stack to another's top node
 {
-	t_node	*top_b;
+	t_stack_node	*push_node; //Used to store the pointer to the node to be pushed
 
-	if (!b || b->size == 0)
+	if (!*src) //The top node of a stack to be pushed
 		return ;
-	top_b = b->top;
-	b->top = top_b->next;
-	b->size--;
-	top_b->next = a->top;
-	a->top = top_b;
-	a->size++;
-	printf("pa\n");
+	push_node = *src; //The top node to push is assigned to the `t_stack_node` variable
+	*src = (*src)->next; //Move the pointer of the stack to the next node, which will become the next `top node` after the node before is "popped off"
+	if (*src) //Check if the current node exists
+		(*src)->previous = NULL; //Set the current node as the head of the stack
+	push_node->previous = NULL; //Detach the node to push from its stack
+	if (!*dst) //Check if the other stack is empty
+	{
+		*dst = push_node; //If it's empty, assign as the first node of that stack, the node we want pushed
+		push_node->next = NULL; //Ensure it is also set as the last node, e.g. properly null terminate the stack
+	}
+	else //If the other stack we want to push to is not empty
+	{
+		push_node->next = *dst; //Assign the node to push, to the top of the current top node of the stack
+		push_node->next->previous = push_node; //Assign to the "second node" `previous` attribute, the pushed node as the current top node
+		*dst = push_node; //Complete appending the node. The pointer to the top node of the stack is now pointing to our recently pushed node
+	}
 }
 
-// Push the top element from stack a to stack b
-void	pb(t_stack *a, t_stack *b)
+void	pa(t_stack_node **a, t_stack_node **b, bool print) //Push on top of `b`, the top `a` and print the instruction
 {
-	if (!a || a->size == 0)
-		return ;
+	push(a, b); 
+	if (!print) 
+		ft_printf("pa\n");
+}
 
-	t_node *top_a = a->top;
-	a->top = top_a->next;
-	a->size--;
-
-	top_a->next = b->top;
-	b->top = top_a;
-	b->size++;
-
-	printf("pb\n");
+void	pb(t_stack_node **b, t_stack_node **a, bool print) //Push on top of `a`, the top `b` and print the instruction
+{
+	push(b, a);
+	if (!print)
+		ft_printf("pb\n");
 }

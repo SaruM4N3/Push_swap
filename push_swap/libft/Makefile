@@ -4,16 +4,15 @@ NAME = libft.a
 
 CC = cc
 AR = ar -rcs
-OPTIMIZATION ?= -O3
 
 OBJ_DIR = obj/
 SRC_DIR = src/
 INC_DIR = headers/
 DEP_DIR = dep/
 
-CFLAGS ?= -Wall -Wextra -Werror -MMD $(OPTIMIZATION) -mavx2 -I $(INC_DIR)
+CFLAGS ?= -Wall -Wextra -Werror -MMD -mavx2 -I $(INC_DIR)
 
-SRCS =	char/ft_isalpha.c \
+LIBFT_SRCS =	char/ft_isalpha.c \
         char/ft_isdigit.c \
         char/ft_isalnum.c \
         char/ft_isascii.c \
@@ -72,6 +71,11 @@ SRCS =	char/ft_isalpha.c \
 		write/ft_putnbr_fd.c \
 		write/ft_putstr_fd.c
 
+FT_PRINTF_SRCS	=	printf/ft_printf.c \
+					printf/ft_printf_parse.c \
+					printf/ft_printf_utils.c
+
+SRCS = $(LIBFT_SRCS) $(FT_PRINTF_SRCS)
 OBJECTS = ${patsubst %.c,$(OBJ_DIR)%.o, $(SRCS)}
 DEPS = $(patsubst %.c,$(OBJ_DIR)%.d, $(SRCS))
 -include $(DEPS)

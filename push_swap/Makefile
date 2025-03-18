@@ -14,7 +14,7 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
-LIBFT= libft/libft.a
+LIBFT= ./libft/libft.a
 LIB= -Llibft
 
 INC = -I includes
@@ -22,16 +22,18 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = src/pushswap.c \
-		src/parsing.c \
-		src/quicksort.c \
-		src/utils/utils.c \
-		src/utils/ft_atoi.c \
-		src/utils/stack_utils.c \
-		src/utils/ft_isdigit.c \
+		src/handle_errors.c \
+		src/init_a_to_b.c \
+		src/init_b_to_a.c \
+		src/split.c \
+		src/stack_init.c \
+		src/stack_utils.c \
 		src/operations/swap.c \
 		src/operations/rotate.c \
 		src/operations/reverserotate.c \
-		src/operations/push.c
+		src/operations/push.c \
+		src/operations/sort_stacks.c \
+		src/operations/sort_three.c
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
@@ -39,7 +41,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
 	@echo "$(GREEN)Making executable$(RESET)"
-	@$(CC) $(CFLAGS) $(INC) -o $(NAME) $(OBJS) $(LIB)
+	@$(CC) $(CFLAGS) $(INC) $(LIBFT) -o $(NAME) $(OBJS) $(LIB)
 
 $(OBJDIR)/%.o: %.c | $(OBJDIR) 
 	@echo "$(YELLOW)Converting $(GREEN)$< $(YELLOW)to $(GREEN)$@$(RESET)"

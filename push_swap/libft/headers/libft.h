@@ -23,9 +23,6 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include "time_manager.h"
-# include "get_next_line.h"
-
-
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\

@@ -26,6 +26,7 @@
 # define PUSH_SWAP_H
 
 # include "../libft/headers/libft.h"
+# include "../libft/headers/ft_printf.h"
 # include <limits.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -37,55 +38,58 @@
 #  include <unistd.h>
 # endif
 
-// Stack Node Structure
-typedef struct s_node
+// Stack Structure
+typedef struct s_stack_node
 {
 	int				value;
-	struct s_node	*next;
-}					t_node;
+	int				index;
+	int				cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack_node	*target;
+	struct s_stack_node	*next;
+	struct s_stack_node	*previous;
+}					t_stack_node;
+//***Handle errors
+int				error_syntax(char *str_n); 
+int				error_duplicate(t_stack_node *a, int n);
+void			free_stack(t_stack_node **stack);
+void			free_errors(t_stack_node **a);
 
-// Stack Structure
-typedef struct s_stack
-{
-	t_node			*top;
-	int				size;
-}					t_stack;
+//***Stack initiation
+void			init_stack_a(t_stack_node **a, char **argv); //Initiate stack `a` before processing
+char			**split(char *s, char c); //To handle input of numbers as a string argument, e.g. enclosed in " "
 
-// Utility Functions
-int 				lowest_value(t_stack *stack);
-int 				highest_value(t_stack *stack);
-int					find_lower_than_pivot(t_stack *stack, int pivot);
-int					find_higher_than_pivot(t_stack *stack, int pivot);
-int					ft_atoi(const char *str);
-int					ft_isdigit(int c);
+//***Nodes initiation
+void			init_nodes_a(t_stack_node *a, t_stack_node *b); //To prep all nodes for pushing `a` to `b`
+void			init_nodes_b(t_stack_node *a, t_stack_node *b); //To prep all nodes for pushing `b` back to `a`
+void			current_index(t_stack_node *stack); //Set the node's current index
+void			set_cheapest(t_stack_node *stack); //Set the stack's cheapest node
+t_stack_node	*get_cheapest(t_stack_node *stack); //Get the cheapest node of a stack
+void			prep_for_push(t_stack_node **s, t_stack_node *n, char c); //Prep the required nodes on top for pushing
 
-// Stack Management Functions
-t_stack				*init_stack(void);
-void				push_stack(t_stack *stack, int value);
-int					pop_stack(t_stack *stack);
-void				free_stack(t_stack *stack);
-bool				is_sorted(t_stack *stack);
+//***Stack utils
+int				stack_len(t_stack_node *stack); //Calculate the length of a stack
+t_stack_node	*find_last(t_stack_node *stack); //Find the last node of a stack
+bool			stack_sorted(t_stack_node *stack); //To check whether a stack is sorted
+t_stack_node	*find_min(t_stack_node *stack); //Find the smallest number
+t_stack_node	*find_max(t_stack_node *stack); //Find the biggest number
 
-// Parsing Function
-t_stack				*parse_input(int argc, char **argv);
+//***Commands
+void			sa(t_stack_node **a, bool print);
+void			sb(t_stack_node **b, bool print);
+void			ss(t_stack_node **a, t_stack_node **b, bool print);
+void			ra(t_stack_node **a, bool print);
+void			rb(t_stack_node **b, bool print);
+void			rr(t_stack_node **a, t_stack_node **b, bool print);
+void			rra(t_stack_node **a, bool print);
+void			rrb(t_stack_node **b, bool print);
+void			rrr(t_stack_node **a, t_stack_node **b, bool print);
+void			pa(t_stack_node **a, t_stack_node **b, bool print);
+void			pb(t_stack_node **b, t_stack_node **a, bool print);
 
-// Sorting Algorithm
-int					*stack_to_array(t_stack *stack);
-int					find_median(t_stack *stack);
-void				partition(t_stack *a, t_stack *b, int lowpivot, int highpivot);
-void				quicksort_stack(t_stack *a, t_stack *b);
-
-// Push Swap Operations
-void				sa(t_stack *a);
-void				sb(t_stack *b);
-void				ss(t_stack *a, t_stack *b);
-void				pa(t_stack *a, t_stack *b);
-void				pb(t_stack *a, t_stack *b);
-void				ra(t_stack *a);
-void				rb(t_stack *b);
-void				rr(t_stack *a, t_stack *b);
-void				rra(t_stack *a);
-void				rrb(t_stack *b);
-void				rrr(t_stack *a, t_stack *b);
+//***Algorithm
+void			sort_three(t_stack_node **a);
+void			sort_stacks(t_stack_node **a, t_stack_node **b); //Turk algorithm
 
 #endif
