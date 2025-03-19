@@ -15,7 +15,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIBFT= ./libft/libft.a
-LIB= -Llibft
+LIB = -L./libft -lft
 
 INC = -I includes
 SRCDIR = src
@@ -41,7 +41,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
 	@echo "$(GREEN)Making executable$(RESET)"
-	@$(CC) $(CFLAGS) $(INC) $(LIBFT) -o $(NAME) $(OBJS) $(LIB)
+	@$(CC) $(CFLAGS) $(INC) $(OBJS) $(LIB) -o $(NAME) 
 
 $(OBJDIR)/%.o: %.c | $(OBJDIR) 
 	@echo "$(YELLOW)Converting $(GREEN)$< $(YELLOW)to $(GREEN)$@$(RESET)"
