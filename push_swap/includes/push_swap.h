@@ -117,7 +117,7 @@ void			prep_for_push(t_stack_node **s, t_stack_node *n, char c);
 char			**split(char *s, char c);
 
 //stack_utils.c
-int				stack_len(t_stack_node *stack);
+int				stack_lenght(t_stack_node *stack);
 t_stack_node	*find_last(t_stack_node *stack);
 bool			is_sorted(t_stack_node *stack);
 t_stack_node	*lowest_value(t_stack_node *stack);

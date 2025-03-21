@@ -29,7 +29,6 @@ void	rev_rotate_both(t_stack_node **a,t_stack_node **b,t_stack_node *cheapest_no
 	current_index(*b);
 }
 
-//prepares the cheapest nodes on top of the stacks for pushing `a` nodes to stack `b`, until there are three nodes left in `a`
 void	move_a_to_b(t_stack_node **a, t_stack_node **b) 
 {
 	t_stack_node	*cheapest_node;
@@ -46,21 +45,19 @@ void	move_a_to_b(t_stack_node **a, t_stack_node **b)
 	pb(b, a);
 }
 
-//prepares `b`'s target `a` nodes for pushing all `b` nodes back to stack `a` 
 void	move_b_to_a(t_stack_node **a, t_stack_node **b) 
 {
 	prep_for_push(a, (*b)->target, 'a');
-	pa(a, b, false); 
+	pa(a, b); 
 }
 
- //moves the lowest number to the top
 void	lowest_on_top(t_stack_node **a)
 {
 	while ((*a)->value != lowest_value(*a)->value)
 	{
 		if (lowest_value(*a)->above_median)
-			ra(a, false);
+			ra(a);
 		else
-			rra(a, false);
+			rra(a);
 	}
 }

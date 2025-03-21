@@ -32,8 +32,8 @@ SRCS = src/pushswap.c \
 		src/operations/rotate.c \
 		src/operations/reverserotate.c \
 		src/operations/push.c \
-		src/algorithm/sort_stacks.c \
-		src/algorithm/sort_three.c
+		src/algorithm/algo_utils.c \
+		src/algorithm/sort_stacks.c
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 
@@ -51,6 +51,7 @@ $(OBJDIR):
 	@mkdir -p $(OBJDIR)/src
 	@mkdir -p $(OBJDIR)/src/utils
 	@mkdir -p $(OBJDIR)/src/operations
+	@mkdir -p $(OBJDIR)/src/algorithm
 
 $(LIBFT):
 	@echo "Make libft"
