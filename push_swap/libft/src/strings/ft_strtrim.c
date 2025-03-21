@@ -12,7 +12,6 @@
 
 #include "../headers/libft.h"
 
-
 static int	ft_check_charset(const char *set, char c)
 {
 	size_t	i;
@@ -27,7 +26,6 @@ static int	ft_check_charset(const char *set, char c)
 	}
 	return (0);
 }
-// YAMETE KUDASAI
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

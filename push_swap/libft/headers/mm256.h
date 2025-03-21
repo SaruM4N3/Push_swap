@@ -21,7 +21,7 @@
 ** @param __n: The number of bits to shift.
 ** @return The result of the left logical shift.
 */
-extern 	__m256i	ft_mm256_slli(__m256i __a, int __n);
+extern __m256i	ft_mm256_slli(__m256i __a, int __n);
 				// __attribute__((__always_inline__));
 
 /**

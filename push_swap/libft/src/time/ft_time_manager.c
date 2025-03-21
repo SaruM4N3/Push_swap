@@ -41,7 +41,7 @@ double	get_proc_uptime(void)
 	return (time);
 }
 
-int	get_frames_per_second()
+int	get_frames_per_second(void)
 {
 	static double	elapsedtime;
 	static double	lastrealtime;

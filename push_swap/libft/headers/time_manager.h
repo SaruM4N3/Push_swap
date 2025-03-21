@@ -28,7 +28,7 @@ double	get_proc_uptime(void);
 **
 ** @return frames/second
 */
-int	get_frames_per_second(void);
+int		get_frames_per_second(void);
 //////////////////////////////////////////////////////////
 
 /** @name GET_DELTATIME

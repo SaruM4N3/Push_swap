@@ -19,7 +19,7 @@
 # include <stdarg.h>
 # ifdef _WIN32
 #  include <io.h>
-#  define access _access
+#  define ACCESS _access
 # else
 #  include <unistd.h>
 # endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_a_to_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:33:46 by marvin            #+#    #+#             */
-/*   Updated: 2025/03/18 17:33:46 by marvin           ###   ########.fr       */
+/*   Updated: 2025/03/21 20:09:44 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@ void	current_index(t_stack_node *stack)
 	{
 		stack->index = i;
 		if (i <= median)
-			stack->above_median = true;
+			stack->is_above_median = true;
 		else
-			stack->above_median = false;
+			stack->is_above_median = false;
 		stack = stack->next;
 		++i;
 	}
 }
 
-//Find `a` node's target in stack `b`
 static void	set_target_a(t_stack_node *a, t_stack_node *b)
 {
 	t_stack_node	*current_b;
@@ -46,7 +45,7 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 		current_b = b;
 		while (current_b)
 		{
-			if (current_b->value < a->value 
+			if (current_b->value < a->value
 				&& current_b->value > best_match_index)
 			{
 				best_match_index = current_b->value;
@@ -62,8 +61,7 @@ static void	set_target_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-//analyses the moving cost from node contained in stack 'a' to target
-static void	cost_analysis_a(t_stack_node *a, t_stack_node *b) 
+static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 {
 	int	len_a;
 	int	len_b;
@@ -73,9 +71,9 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	while (a)
 	{
 		a->cost = a->index;
-		if (!(a->above_median))
+		if (!(a->is_above_median))
 			a->cost = len_a - (a->index);
-		if (a->target->above_median)
+		if (a->target->is_above_median)
 			a->cost += a->target->index;
 		else
 			a->cost += len_b - (a->target->index);
@@ -83,7 +81,6 @@ static void	cost_analysis_a(t_stack_node *a, t_stack_node *b)
 	}
 }
 
-//sets the cheapest node's attribute as `true` or `false`
 void	set_cheapest(t_stack_node *stack)
 {
 	long			cheapest_value;
@@ -101,7 +98,7 @@ void	set_cheapest(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	cheapest_node->cheapest = true;
+	cheapest_node->is_cheapest = true;
 }
 
 void	init_nodes_a(t_stack_node *a, t_stack_node *b)

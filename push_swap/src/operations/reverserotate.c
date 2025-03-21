@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   reverserotate.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/03/18 17:51:07 by zsonie            #+#    #+#             */
 /*   Updated: 2025/03/18 17:51:07 by zsonie           ###   ########.fr       */
 /*                                                                            */
@@ -18,7 +21,7 @@ static void	rev_rotate(t_stack_node **stack)
 
 	if (!*stack || !(*stack)->next)
 		return ;
-	last = find_last(*stack);
+	last = get_last_node(*stack);
 	last->previous->next = NULL;
 	last->next = *stack;
 	last->previous = NULL;

@@ -36,11 +36,13 @@ static int	ft_base_is_valid(char *base)
 	}
 	return (0);
 }
+
 static void	secure_write(int fd, char *c, size_t n)
 {
 	if (!write(fd, c, n))
-		return;
+		return ;
 }
+
 void	ft_putnbr_int(int n, int fd, size_t *fsize)
 {
 	unsigned int	un;

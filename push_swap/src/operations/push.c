@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/03/18 17:49:23 by zsonie            #+#    #+#             */
 /*   Updated: 2025/03/18 17:49:23 by zsonie           ###   ########.fr       */
 /*                                                                            */
@@ -38,7 +41,7 @@ static void	push(t_stack_node **dst, t_stack_node **src)
 
 void	pa(t_stack_node **a, t_stack_node **b)
 {
-	push(a, b); 
+	push(a, b);
 	ft_printf("pa\n");
 }
 

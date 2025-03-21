@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:51:28 by zsonie            #+#    #+#             */
-/*   Updated: 2025/03/18 17:51:28 by zsonie           ###   ########.fr       */
+/*   Updated: 2025/03/21 20:06:16 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	while (lenght_stack_a-- > 3 && !is_sorted(*a))
 	{
 		init_nodes_a(*a, *b);
-		move_a_to_b(a, b);
+		push_cheapest_from_a_to_b(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
 		init_nodes_b(*a, *b);
-		move_b_to_a(a, b);
+		push_cheapest_from_b_to_a(a, b);
 	}
 	current_index(*a);
 	lowest_on_top(a);
 }
 
-void	sort_three(t_stack_node **a) 
+void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*highest_node;
 

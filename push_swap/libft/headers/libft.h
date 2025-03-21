@@ -14,96 +14,104 @@
 # define LIBFT_H
 
 ////////////////////////////////INCLUDES//////////////////////////////////////
-#ifdef _WIN32
-# include <io.h>
-# define access _access
+# ifdef _WIN32
+#  include <io.h>
+#  define ACCESS _access
 # else
-# include <unistd.h>
-#endif
+#  include <unistd.h>
+# endif
 # include <stddef.h>
 # include <stdlib.h>
 # include "time_manager.h"
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `
-////CHAR////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      
+////CHAR///////////////////////////////////////////////////////////////////////
   .--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `*/
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      */
 
 /** @name FT_ISALNUM **
 ** @brief checks for an alphanumeric character
 **
 ** @param c: the character to test
-** @return The values returned are nonzero if the character c falls into the tested class, and zero if not.
+** @return The values returned are nonzero if the character c 
+falls into the tested class, and zero if not.
 */
 int				ft_isalnum(int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_ISALPHA **
 ** @brief Check for an alphabetic character
 **
 ** @param c: the character to test
-** @return The values returned are nonzero if the character c falls into the tested class, and zero if not.
+** @return The values returned are nonzero if the character c falls into the 
+tested class, and zero if not.
 */
 int				ft_isalpha(int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_ISASCII**
-** @brief checks whether c is a 7-bit unsigned char value that fits into the ASCII character set.
+** @brief checks whether c is a 7-bit unsigned char value that fits into the 
+ASCII character set.
 **
 ** @param c: the character to test
-** @return The values returned are nonzero if the character c falls into the tested class, and zero if not.
+** @return The values returned are nonzero if the character c falls into the 
+tested class, and zero if not.
 */
 int				ft_isascii(int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_ISDIGIT**
 ** @brief checks for a digit (0 through 9).
 **
 ** @param c: the character to test
-** @return The values returned are nonzero if the character c falls into the tested class, and zero if not.
+** @return The values returned are nonzero if the character c falls into the 
+tested class, and zero if not.
 */
 int				ft_isdigit(int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_ISPRINT**
 ** @brief checks for any printable character including space.
 **
 ** @param c: the character to test
-** @return The values returned are nonzero if the character c falls into the tested class, and zero if not.
+** @return The values returned are nonzero if the character c falls into the 
+tested class, and zero if not.
 */
 int				ft_isprint(int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_TOLOWER**
 ** @brief convert uppercase letters to lowercase.
 **
 ** @param c: the character to test
-** @return The value returned is that of the converted letter, or c if the conversion was not possible.
+** @return The value returned is that of the converted letter, or c if the 
+conversion was not possible.
 */
 int				ft_tolower(int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_TOUPPER**
 ** @brief convert lowercase letters to uppercase.
 **
 ** @param c: the character to test
-** @return The value returned is that of the converted letter, or c if the conversion was not possible.
+** @return The value returned is that of the converted letter, or c if the 
+conversion was not possible.
 */
 int				ft_toupper(int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      
 ///////////////////////////////
 ////CONVERT////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
   .--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `*/
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      */
 
 /** @name FT_ATOF**
 ** @brief convert ascii to float (double).
@@ -112,7 +120,7 @@ int				ft_toupper(int c);
 ** @return The converted double or 0 on error.
 */
 double			ft_atof(const char *str);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_ATOI**
 ** @brief convert ascii to int
@@ -121,7 +129,7 @@ double			ft_atof(const char *str);
 ** @return The converted int or 0 on error.
 */
 int				ft_atoi(const char *str);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_ITOA**
 ** @brief convert int to ascii.
@@ -130,15 +138,15 @@ int				ft_atoi(const char *str);
 ** @return The converted strings.
 */
 char			*ft_itoa(int n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `
-////LIST/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      
+////LIST/////////////////////////////////////////////////////////////////////
   .--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `*/
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      */
 
 /** @name SINGLYCHAINEDLIST**
 ** @brief a simple chained list struct.
@@ -150,7 +158,7 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTADD_BACK**
 ** @brief add a node from the back of the list.
@@ -160,7 +168,7 @@ typedef struct s_list
 ** @return nothing.
 */
 void			ft_lstadd_back(t_list **lst, t_list *new);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTADD_FRONT**
 ** @brief add a node to the front of the list.
@@ -170,7 +178,7 @@ void			ft_lstadd_back(t_list **lst, t_list *new);
 ** @return nothing.
 */
 void			ft_lstadd_front(t_list **lst, t_list *new);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTCLEAR**
 ** @brief clear and free all node of a chained list.
@@ -180,7 +188,7 @@ void			ft_lstadd_front(t_list **lst, t_list *new);
 ** @return nothing.
 */
 void			ft_lstclear(t_list **lst, void (*del)(void*));
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTDELONE**
 ** @brief clear and free a node.
@@ -190,7 +198,7 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 ** @return nothing.
 */
 void			ft_lstdelone(t_list *lst, void (*del)(void*));
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTITER**
 ** @brief Iterates the list ’lst’ and applies the function ’f’ 
@@ -201,7 +209,7 @@ on the content of each node.
 ** @return nothing.
 */
 void			ft_lstiter(t_list *lst, void (*f)(void *));
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTLAST**
 ** @brief Returns the last node of the list.
@@ -210,7 +218,7 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 ** @return The length of the list
 */
 t_list			*ft_lstlast(t_list *lst);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTSIZE**
 ** @brief Counts the number of nodes in a list.
@@ -219,7 +227,7 @@ t_list			*ft_lstlast(t_list *lst);
 ** @return The length of the list
 */
 int				ft_lstsize(t_list *lst);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_LSTMAP**
 ** @brief Iterates the list ’lst’ and applies the function 
@@ -236,7 +244,7 @@ the content of a node if needed.
 */
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 				void (*del)(void *));
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** FT_LSTNEW**
 ** @brief Allocates (with malloc(3)) and returns a new node.
@@ -245,44 +253,46 @@ t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), \
 ** @return the created chained node.
 */
 t_list			*ft_lstnew(void *content);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `
-////MEMORY///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      
+////MEMORY///////////////////////////////////////////////////////////////////
   .--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `*/
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      */
 /** @name FT_BZERO**
-** @brief The  bzero() function erases the data in the n bytes of the memory starting
-at the location pointed to by s, by writing zeros (bytes  containing  '\0')
-to that area.
+** @brief The  bzero() function erases the data in the n bytes of the memory 
+startingat the location pointed to by s, by writing zeros 
+(bytes  containing  '\0') to that area.
 **
 ** @param s: pointed location.
 ** @param n: number of bytes to write.
 ** @return the created chained node.
 */
 void			*ft_bzero(void *s, size_t n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_CALLOC**
-** @brief The calloc() function allocates memory for an array of  nmemb  elements  of
-       size  bytes each and returns a pointer to the allocated memory.  The memory
-       is set to zero.  If nmemb or size is 0,  then  calloc()  returns  a  unique
-       pointer value that can later be successfully passed to free().
+** @brief The calloc() function allocates memory for an array of  nmemb  
+elements  of size  bytes each and returns a pointer to the allocated
+ memory.  The memory is set to zero.  If nmemb or size is 0,  
+ then  calloc()  returns  a  unique pointer value that can later
+  be successfully passed to free().
 **
 ** @param nmemb: number of elements.
 ** @param size: number of bytes of each elements.
 ** @return a pointer to the allocated memory.
 */
 void			*ft_calloc(size_t nmemb, size_t size);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_MEMCHR**
-** @brief The  memchr() function scans the initial n bytes of the memory area pointed
-       to by s for the first instance of c.  Both c and the bytes  of  the  memory
-       area pointed to by s are interpreted as unsigned char.
+** @brief The  memchr() function scans the initial n bytes of the memory 
+area pointed to by s for the first instance of c.  
+Both c and the bytes  of  the  memory
+area pointed to by s are interpreted as unsigned char.
 **
 ** @param s: the start of the memory area pointed.
 ** @param c: the charset to scan for.
@@ -290,11 +300,11 @@ void			*ft_calloc(size_t nmemb, size_t size);
 ** @return the new address if the charset has been scanned, 0 if not scanned.
 */
 void			*ft_memchr(const void *s, int c, size_t n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_MEMCMP**
-** @brief The  memcmp()  function compares the first n bytes (each interpreted as un‐
-       signed char) of the memory areas s1 and s2.
+** @brief The  memcmp()  function compares the first n bytes 
+(each interpreted as unsigned char) of the memory areas s1 and s2.
 **
 ** @param s1: a string to compare.
 ** @param s2: a string to compare.
@@ -302,12 +312,13 @@ void			*ft_memchr(const void *s, int c, size_t n);
 ** @return different to 0 if not identical or 0 if identical.
 */
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_MEMCPY**
-** @brief The  memcpy()  function  copies n bytes from memory area src to memory area
-       dest.  The memory areas must not overlap.  Use memmove(3) if the memory ar‐
-       eas do overlap.
+** @brief The  memcpy()  function  copies n bytes from memory area src 
+to memory area
+dest.  The memory areas must not overlap.  Use memmove(3) if the 
+memory areas do overlap.
 **
 ** @param dest: the destination string.
 ** @param src: the string to copy.
@@ -315,13 +326,17 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 ** @return dest.
 */
 void			*ft_memcpy(void *dest, const void *src, size_t n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_MEMMOVE**
-** @brief The  memmove()  function copies n bytes from memory area src to memory area
-       dest.  The memory areas may overlap: copying  takes  place  as  though  the
-       bytes  in src are first copied into a temporary array that does not overlap
-       src or dest, and the bytes are then copied  from  the  temporary  array  to
+** @brief The  memmove()  function copies n bytes from memory area 
+src to memory area
+       dest.  The memory areas may overlap: copying  takes  place  
+	   as  though  the
+       bytes  in src are first copied into a temporary array that 
+	   does not overlap
+       src or dest, and the bytes are then copied  from  the  temporary  
+	   array  to
        dest.
 **
 ** @param dest: the destination string.
@@ -330,10 +345,11 @@ void			*ft_memcpy(void *dest, const void *src, size_t n);
 ** @return dest.
 */
 void			*ft_memmove(void *dest, const void *src, size_t n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_MEMSET**
-** @brief The memset() function fills the first n bytes of the memory area pointed to
+** @brief The memset() function fills the first n bytes of the memory 
+area pointed to
        by s with the constant byte c.
 **
 ** @param s: the destination string.
@@ -342,15 +358,15 @@ void			*ft_memmove(void *dest, const void *src, size_t n);
 ** @return s.
 */
 void			*ft_memset(void *s, int c, size_t n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `
-////STRINGS/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      
+////STRINGS//////////////////////////////////////////////////////////////////
   .--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `*/
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      */
 
 /** @name FT_SPLIT**
 ** @brief Allocates (with malloc(3)) and returns an array
@@ -364,11 +380,11 @@ with a NULL pointer.
 NULL if the allocation fails.
 */
 char			**ft_split(char const *s, char c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRCHR**
-** @brief The strchr() function returns a pointer to the first occurrence of the
-       character c in the string s.
+** @brief The strchr() function returns a pointer to the first occurrence 
+of the character c in the string s.
 **
 ** @param s: the destination string.
 ** @param c: the char to fill.
@@ -376,18 +392,18 @@ char			**ft_split(char const *s, char c);
        character c in the string s.
 */
 char			*ft_strchr(const char *s, int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRDUP**
-** @brief The  strdup()  function returns a pointer to a new string which is a duplicate
- of the string s. Memory for the new  string  is  obtained  with  mal‐
-loc(3), and can be freed with free(3).
+** @brief The  strdup()  function returns a pointer to a new string which is 
+a duplicate of the string s. Memory for the new  string  is  obtained  with 
+malloc(3), and can be freed with free(3).
 **
 ** @param src: the source string.
 ** @return a pointer to a new string which is a duplicate of the string s.
 */
 char			*ft_strdup(char *src);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRITERI**
 ** @brief Applies the function ’f’ on each character of
@@ -400,7 +416,7 @@ address to ’f’ to be modified if necessary.
 ** @return none.
 */
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRJOIN**
 ** @brief Allocates (with malloc(3)) and returns a new
@@ -413,12 +429,13 @@ of ’s1’ and ’s2’.
 NULL if the allocation fails.
 */
 char			*ft_strjoin(char const *s1, char const *s2);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRLCAT**
 ** @brief The strlcat() function appends the NUL-terminated string 
 src to the end of dst. 
-It will append at most size - strlen(dst) - 1 bytes, NUL-terminating the result.
+It will append at most size - strlen(dst) - 1 bytes, NUL-terminating the 
+result.
 **
 ** @param dest: The destination string.
 ** @param src: The source string.
@@ -436,7 +453,7 @@ that  dst  is not a proper “C” string).  The check exists to prevent poten�
 tial security problems in incorrect code.
 */
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRLCAT**
 ** @brief The strlcpy() function copies up to size - 1 characters from
@@ -445,11 +462,11 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
 ** @param dest: The destination string.
 ** @param src: The source string.
 ** @param size: The size.
-** @return The strlcpy() return the total
- length of the string tried to create. For strlcpy() that means the length of src.
+** @return The strlcpy() return the total length of the string tried to
+ create. For strlcpy() that means the length of src.
 */
 size_t			ft_strlcpy(char *dest, char *src, unsigned int size);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRLEN**
 ** @brief Strlen is supposed to calculate the length of a string.
@@ -458,7 +475,7 @@ size_t			ft_strlcpy(char *dest, char *src, unsigned int size);
 ** @return The len of the string.
 */
 size_t			ft_strlen(const char *s);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRLCAT**
 ** @brief Apply the function 'f' to each characters in the string 's'
@@ -471,7 +488,7 @@ size_t			ft_strlen(const char *s);
  NULL if the memory allocations failed.
 */
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRNCMP**
 ** @brief The strncmp() function lexicographically compare 
@@ -481,10 +498,11 @@ the null-terminated strings s1 and s2.
 ** @param s2: The address pointed in a 2nd string. 
 ** @param n: number of char to compare.
 ** @return an integer greater than, equal to, or less than 0, 
-according as the string s1 is greater than, equal to, or less than the string s2.
+according as the string s1 is greater than, equal to, or less than the 
+string s2.
 */
 int				ft_strncmp(char *s1, char *s2, unsigned int n);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRNSTR**
 ** @brief The strnstr() function locates the first occurence of the 
@@ -500,7 +518,7 @@ Characters that appear after a '\0' character are not searched.
   of the first occurence of little is returned.
 */
 char			*ft_strnstr(const char *big, const char *little, size_t len);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRRCHR**
 ** @brief The strrchr() function is identical to 
@@ -512,7 +530,7 @@ strchr(), except it locates the last occurence of c.
  character, or NULL if the character does not appear in the string.
 */
 char			*ft_strrchr(const char *s, int c);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_STRTRIM**
 ** @brief Allocate (with malloc(3)) and returns a copy of s1,
@@ -524,7 +542,7 @@ char			*ft_strrchr(const char *s, int c);
  NULL if the memory allocation failed.
 */
 char			*ft_strtrim(char const *s1, char const *set);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_SUBSTR**
 ** @brief Allocate (with malloc(3)) and return a new string from the string s.
@@ -537,15 +555,15 @@ char			*ft_strtrim(char const *s1, char const *set);
  NULL if the memory allocation failed.
 */
 char			*ft_substr(char const *s, unsigned int start, size_t len);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /*.--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `
-////WRITE/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      
+////WRITE/////////////////////////////////////////////////////////////////////
   .--.      .-'.      .--.      .--.      .--.      .--.      .`-.      .--.
 :::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\::::::::.\
-'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      `*/
+'      `--'      `.-'      `--'      `--'      `--'      `-.'      `--'      */
 
 /** @name FT_PUTCHAR_FD**
 ** @brief The ft_putchar_fd() function writes the 
@@ -556,7 +574,7 @@ character c on the file descriptor fd.
 ** @return none.
 */
 void			ft_putchar_fd(char c, int fd);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_PUTENDL_FD**
 ** @brief write the string s, followed by a newline, 
@@ -567,7 +585,7 @@ on the file descriptor fd.
 ** @return none.
 */
 void			ft_putendl_fd(char *s, int fd);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_PUTNBR_FD**
 ** @brief write the int n on the file descriptor fd.
@@ -577,7 +595,7 @@ void			ft_putendl_fd(char *s, int fd);
 ** @return none.
 */
 void			ft_putnbr_fd(int n, int fd);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 /** @name FT_PUTSTR_FD**
 ** @brief Write a function that displays a string on the standard output.
@@ -587,6 +605,6 @@ void			ft_putnbr_fd(int n, int fd);
 ** @return none.
 */
 void			ft_putstr_fd(char *s, int fd);
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 #endif

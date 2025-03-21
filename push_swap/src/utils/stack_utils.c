@@ -3,21 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 16:01:46 by zsonie            #+#    #+#             */
-/*   Updated: 2025/03/21 16:01:46 by zsonie           ###   ########.fr       */
+/*   Updated: 2025/03/21 20:17:04 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-//calculates and returns the length of a stack
 int	stack_lenght(t_stack_node *stack)
 {
 	int	lenght;
 
-	if (!stack) 
+	if (!stack)
 		return (0);
 	lenght = 0;
 	while (stack)
@@ -28,18 +27,16 @@ int	stack_lenght(t_stack_node *stack)
 	return (lenght);
 }
 
-//returns the pointer to the last node
-t_stack_node	*find_last(t_stack_node *stack) 
+t_stack_node	*get_last_node(t_stack_node *node)
 {
-	if (!stack)
+	if (!node)
 		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
+	while (node->next)
+		node = node->next;
+	return (node);
 }
 
-//checks if the stack is sorted in ascending order
-bool	is_sorted(t_stack_node *stack) 
+bool	is_sorted(t_stack_node *stack)
 {
 	if (!stack)
 		return (1);
@@ -52,8 +49,7 @@ bool	is_sorted(t_stack_node *stack)
 	return (true);
 }
 
-//searches a stack and returns the node with the smallest number
-t_stack_node	*lowest_value(t_stack_node *stack) 
+t_stack_node	*lowest_value(t_stack_node *stack)
 {
 	long			lowest;
 	t_stack_node	*lowest_node;
@@ -70,11 +66,10 @@ t_stack_node	*lowest_value(t_stack_node *stack)
 		}
 		stack = stack->next;
 	}
-	return (lowest_node); 
+	return (lowest_node);
 }
 
-// searches a stack and returns the node with the biggest number
-t_stack_node	*highest_value(t_stack_node *stack) 
+t_stack_node	*highest_value(t_stack_node *stack)
 {
 	long			highest;
 	t_stack_node	*highest_node;
@@ -82,7 +77,7 @@ t_stack_node	*highest_value(t_stack_node *stack)
 	if (!stack)
 		return (NULL);
 	highest = LONG_MIN;
-	while (stack) 
+	while (stack)
 	{
 		if (stack->value > highest)
 		{

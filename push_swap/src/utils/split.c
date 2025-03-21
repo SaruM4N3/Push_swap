@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   split.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zsonie <zsonie@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: zsonie <zsonie@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 17:19:38 by zsonie            #+#    #+#             */
-/*   Updated: 2025/03/21 17:19:38 by zsonie           ###   ########.fr       */
+/*   Updated: 2025/03/21 20:09:56 by zsonie           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static int	count_words(char *s, char c)
 static char	*get_next_word(char *s, char c)
 {
 	static int	cursor = 0;
-		char		*next_word;
+	char		*next_word;
 	int			len;
 	int			i;
 
@@ -58,7 +58,7 @@ static char	*get_next_word(char *s, char c)
 	return (next_word);
 }
 
-char **split(char *s, char c)
+char	**split(char *s, char c)
 {
 	int		words_count;
 	char	**result_array;
