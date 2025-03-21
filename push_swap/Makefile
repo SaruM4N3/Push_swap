@@ -22,18 +22,18 @@ SRCDIR = src
 OBJDIR = obj
 
 SRCS = src/pushswap.c \
-		src/handle_errors.c \
-		src/init_a_to_b.c \
-		src/init_b_to_a.c \
-		src/split.c \
-		src/stack_init.c \
-		src/stack_utils.c \
+		src/utils/errors.c \
+		src/utils/init_a_to_b.c \
+		src/utils/init_b_to_a.c \
+		src/utils/split.c \
+		src/utils/stack_init.c \
+		src/utils/stack_utils.c \
 		src/operations/swap.c \
 		src/operations/rotate.c \
 		src/operations/reverserotate.c \
 		src/operations/push.c \
-		src/operations/sort_stacks.c \
-		src/operations/sort_three.c
+		src/algorithm/sort_stacks.c \
+		src/algorithm/sort_three.c
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

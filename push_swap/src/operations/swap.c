@@ -12,37 +12,34 @@
 
 #include "../../includes/push_swap.h"
 
-static void	swap(t_stack_node **head) //Define a function that swaps the positions of the top node and second node of a stack
+static void	swap(t_stack_node **head)
 {
-	if (!*head || !(*head)->next) //Check if the stop node, or second node of a stack exists
+	if (!*head || !(*head)->next)
 		return ;
-	*head = (*head)->next; //Update `head` to point to the next node, effectively swapping the first and second nodes
-	(*head)->previous->previous = *head; //Update the `previous` pointer of the node before the `new head` to point to the `new head`
-	(*head)->previous->next = (*head)->next; //Update the `next` pointer of the node before the `new head` to skip the `old head` and point directly to the `new head`
-	if ((*head)->next) //Check if there's a `next` node after the `new head` and
-		(*head)->next->previous = (*head)->previous; //If so, update its `previous` pointer to point back to the `new head`
-	(*head)->next = (*head)->previous; //Update the `next` pointer of the `new head` to point to the `old head`, effectively reversing their positions
-	(*head)->previous = NULL; //Sets the `previous` pointer of the `new head` to `NULL` completing the swap
+	*head = (*head)->next;
+	(*head)->previous->previous = *head;
+	(*head)->previous->next = (*head)->next;
+	if ((*head)->next)
+		(*head)->next->previous = (*head)->previous;
+	(*head)->next = (*head)->previous;
+	(*head)->previous = NULL;
 }
 
-void	sa(t_stack_node	**a, bool print) //Swap the first two nodes of stack `a` and print the instruction
+void	sa(t_stack_node	**a)
 {
 	swap(a);
-	if (!print)
-		ft_printf("sa\n");
+	ft_printf("sa\n");
 }
 
-void	sb(t_stack_node **b, bool print) //Swap the first two nodes of stack `b` and print the instruction
+void	sb(t_stack_node **b)
 {
 	swap(b);
-	if (!print)
-		ft_printf("sb\n");
+	ft_printf("sb\n");
 }
 
-void	ss(t_stack_node **a, t_stack_node **b, bool print) //Stimutaneously swap the first two nodes of the stack and print the instruction
+void	ss(t_stack_node **a, t_stack_node **b)
 {
 	swap(a);
 	swap(b);
-	if (!print)
-		ft_printf("ss\n");
+	ft_printf("ss\n");
 }
