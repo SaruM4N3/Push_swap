@@ -131,6 +131,15 @@ double			ft_atof(const char *str);
 int				ft_atoi(const char *str);
 ///////////////////////////////////////////////////////////////////////////////
 
+/** @name FT_ATOL**
+** @brief convert ascii to long
+**
+** @param str: the string to convert.
+** @return The converted long or 0 on error.
+*/
+long				ft_atol(const char *str);
+///////////////////////////////////////////////////////////////////////////////
+
 /** @name FT_ITOA**
 ** @brief convert int to ascii.
 **
@@ -607,4 +616,4 @@ void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *s, int fd);
 ///////////////////////////////////////////////////////////////////////////////
 
-#endif
+# endif

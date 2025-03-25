@@ -32,7 +32,7 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 		init_nodes_b(*a, *b);
 		push_cheapest_from_b_to_a(a, b);
 	}
-	current_index(*a);
+	assign_index(*a);
 	lowest_on_top(a);
 }
 

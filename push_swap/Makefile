@@ -25,7 +25,6 @@ SRCS = src/pushswap.c \
 		src/utils/errors.c \
 		src/utils/init_a_to_b.c \
 		src/utils/init_b_to_a.c \
-		src/utils/split.c \
 		src/utils/stack_init.c \
 		src/utils/stack_utils.c \
 		src/operations/swap.c \

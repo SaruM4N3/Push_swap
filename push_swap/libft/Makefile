@@ -22,6 +22,7 @@ LIBFT_SRCS =	char/ft_isalpha.c \
 \
 		convert/ft_atof.c \
 		convert/ft_atoi.c \
+		convert/ft_atol.c \
 		convert/ft_itoa.c \
 \
 		gnl/get_next_line.c \

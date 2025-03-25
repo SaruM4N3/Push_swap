@@ -96,26 +96,3 @@ char	**ft_split(char const *s, char c)
 	res[i] = NULL;
 	return (res);
 }
-
-// int	main(void)
-// {
-// 	char	*str;
-// 	char	**strtab;
-// 	char	c;
-// 	int		i;
-
-// 	str = "Monkeys are in the place,you pissed us and
-// 	 you will pay for it,
-// 	 fucking bastards!";
-// 	c = 'a';
-// 	i = 0;
-// 	strtab = ft_split(str, c);
-// 	while (strtab[i])
-// 	{
-// 		__builtin_printf("%s", strtab[i]);
-// 		free(strtab[i]);
-// 		i++;
-// 	}
-// 	free(strtab);
-// 	return (0);
-// }

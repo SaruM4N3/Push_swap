@@ -12,27 +12,6 @@
 
 #include "../../includes/push_swap.h"
 
-static long	ft_atol(const char *str)
-{
-	long	result;
-	int		sign;
-
-	result = 0;
-	sign = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r'
-		|| *str == '\f' || *str == '\v')
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			sign = -1;
-		str++;
-	}
-	while (ft_isdigit(*str))
-		result = result * 10 + (*str++ - '0');
-	return (result * sign);
-}
-
 static void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;

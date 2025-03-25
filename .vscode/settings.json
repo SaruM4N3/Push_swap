@@ -61,6 +61,8 @@
     "array": "c",
     "string_view": "c",
     "initializer_list": "c",
-    "xutility": "c"
+    "xutility": "c",
+    "limits": "c",
+    "ranges": "c"
   }
 }

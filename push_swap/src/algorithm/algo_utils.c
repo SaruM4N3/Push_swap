@@ -17,8 +17,8 @@ void	rotate_both(t_stack_node **a, t_stack_node **b,
 {
 	while (*b != cheapest_node->target && *a != cheapest_node)
 		rr(a, b);
-	current_index(*a);
-	current_index(*b);
+	assign_index(*a);
+	assign_index(*b);
 }
 
 void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
@@ -26,8 +26,8 @@ void	rev_rotate_both(t_stack_node **a, t_stack_node **b,
 {
 	while (*b != cheapest_node->target && *a != cheapest_node)
 		rrr(a, b);
-	current_index(*a);
-	current_index(*b);
+	assign_index(*a);
+	assign_index(*b);
 }
 
 void	push_cheapest_from_a_to_b(t_stack_node **a, t_stack_node **b)

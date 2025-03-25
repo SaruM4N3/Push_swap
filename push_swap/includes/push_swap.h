@@ -112,7 +112,7 @@ void			free_and_print_error(t_stack_node **a);
 // init_a_to_b.c
 void			init_nodes_a(t_stack_node *a, t_stack_node *b);
 void			set_cheapest(t_stack_node *stack);
-void			current_index(t_stack_node *stack);
+void			assign_index(t_stack_node *stack);
 t_stack_node	*get_cheapest(t_stack_node *stack);
 
 // init_b_to_a.c
@@ -121,9 +121,6 @@ void			init_nodes_b(t_stack_node *a, t_stack_node *b);
 // stack_init.c
 void			init_stack_a(t_stack_node **a, char **argv);
 void			prep_for_push(t_stack_node **s, t_stack_node *n, char c);
-
-// split.c
-char			**split(char *s, char c);
 
 // stack_utils.c
 int				stack_lenght(t_stack_node *stack);
