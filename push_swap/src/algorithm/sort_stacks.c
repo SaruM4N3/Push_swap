@@ -17,8 +17,7 @@ void	sort_stacks(t_stack_node **a, t_stack_node **b)
 	int	lenght_stack_a;
 
 	lenght_stack_a = stack_lenght(*a);
-	if (lenght_stack_a-- > 3 && !is_sorted(*a))
-		pb(b, a);
+
 	if (lenght_stack_a-- > 3 && !is_sorted(*a))
 		pb(b, a);
 	while (lenght_stack_a-- > 3 && !is_sorted(*a))
